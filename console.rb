@@ -31,7 +31,7 @@ module Console
         # send data to @game_coord
     end
 
-    def play_again?
+    def user_plays_again?
         valid_input = false
         user_input = ""
 
