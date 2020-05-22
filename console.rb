@@ -1,5 +1,5 @@
 require 'pry'
-require_relative 'noughts_and_crosses'
+require_relative 'game_model'
 
 class ConsoleApp
 
