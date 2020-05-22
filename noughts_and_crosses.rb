@@ -27,8 +27,13 @@ class Cell
 end
 
 class Player
-    attr_accessor :name
-    attr_accessor :player_number
+    attr_reader :name
+    attr_reader :player_number
+
+    def initialize(name, player_number)
+        @name = name
+        @player_number = player_number
+    end
 end
 
 class GameCoord
@@ -36,7 +41,7 @@ class GameCoord
     attr_accessor :players
 
     def initialize
-        @players = [Player.new, Player.new]
+        @players = []
         @playing_grid = Grid.new
         populate_grid(@playing_grid)
     end
@@ -58,5 +63,13 @@ class GameCoord
         #add reference to 3 cells in each row
         #add cells and rows to grid
         
+    end
+
+    def set_first_player_name(name)
+        @players[0] = Player.new(name, 1)
+    end
+
+    def set_second_player_name(name)
+        @players[1] = Player.new(name, 2)
     end
 end
