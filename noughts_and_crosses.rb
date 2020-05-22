@@ -16,12 +16,12 @@ class NoughtsAndCrosses
         keep_playing = true
         until keep_playing == false
             loop do
-                draw_grid
+                display_grid
                 break if game_over?
                 get_user_turn
                 @turns += 1
             end
-            keep_playing = play_again?
+            keep_playing = user_plays_again?
         end            
     end
 

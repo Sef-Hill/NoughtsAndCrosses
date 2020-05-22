@@ -13,7 +13,7 @@ module Console
         @game_coord.set_second_player_name(player2)
     end
 
-    def draw_grid
+    def display_grid
 
         #ACTION: replace numbers with user symbols
 
