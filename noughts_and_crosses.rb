@@ -50,10 +50,10 @@ class GameCoord
         rows = Array.new(8, Row.new)
 
         #Top horizontal row
-        row[0] = [cells[0,0], cells[0,1], cells[0,2]]
+        rows[0] = [cells[0,0], cells[0,1], cells[0,2]]
 
         #Middle horizontal row
-        row[1] = [cells[1,0], cells[1,1], cells[1,2]]
+        rows[1] = [cells[1,0], cells[1,1], cells[1,2]]
 
         #add reference to 3 cells in each row
         #add cells and rows to grid
