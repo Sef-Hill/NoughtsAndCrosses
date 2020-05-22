@@ -46,4 +46,8 @@ module Console
         end
         user_input == "y"
     end
+
+    def display_game_is_draw
+        puts "\nIt's a draw - bad luck!"
+    end
 end

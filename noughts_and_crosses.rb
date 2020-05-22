@@ -27,7 +27,7 @@ class NoughtsAndCrosses
 
     def game_over?
         if @turns == 9
-            #run game_is_draw
+            display_game_is_draw
             return true   
         elsif @turns >= 3
             #check for anybody won?
