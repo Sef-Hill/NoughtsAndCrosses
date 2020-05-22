@@ -23,7 +23,7 @@ class NoughtsAndCrosses
                 # returns Hash: e.g.{X => [1, 2, 9], O => [3, 4]}
                 display_grid(previous_moves)
                 break if game_over?
-                
+
                 available_positions = @game_coord.get_available_positions
                 grid_number = get_user_turn(available_positions)
                 @game_coord.set_user_turn(PLAYERS[player_number], grid_number)
@@ -47,7 +47,10 @@ class NoughtsAndCrosses
             # winner will be "X" or "O" or nil
             if winner
                 display_winner(player_number)
-            return true
+                return true
+            else
+                return false
+            end
         else
             return false
         end
