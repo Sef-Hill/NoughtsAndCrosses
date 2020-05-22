@@ -6,6 +6,7 @@ module Console
     def display_grid(previous_moves)
 
         #ACTION: replace numbers with users' tokens
+        # previous_moves == Hash: e.g.{X => [1, 2, 9], O => [3, 4]}
 
         line_divider = "---+---+---"
         puts ""
@@ -17,8 +18,10 @@ module Console
     end
 
     def get_user_turn(available_positions)
+        # available_positions == Array[Integer]
+        #RETURNS: Integer
+
         # ask player for valid move i.e. in available_positions
-        # return grid number as String
     end
 
     def get_user_plays_again?
