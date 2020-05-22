@@ -7,7 +7,7 @@ end
 class Row
     attr_accessor :cells
 
-    def check_for_game_end
+    def check_for_winning_line
     end
 end
 
