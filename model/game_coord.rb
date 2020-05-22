@@ -3,6 +3,10 @@ require 'pry'
 class Row
     attr_accessor :cells
 
+    def initialize(cells)
+        @cells = cells
+    end
+
     def check_for_winning_line
     end
 end
@@ -18,20 +22,23 @@ class Cell
 end
 
 class GameCoord
-
     def initialize
-        @cells = Array.new
-        9.times do |number|
-            @cells.push(Cell.new(number))
+        @cells = []
+        @rows = []
+
+        for i in 1..9
+            @cells.push(Cell.new(i))
         end
 
-        @rows = Array.new(8, Row.new)
-        @rows[0].cells = @cells.select { |cell| [1, 2, 3].include? cell.number }
-        binding.pry
-        #@rows[1].cells = @cells.select { |cell| [1, 2, 3].include? cell.number }
+        @rows.push(Row.new(@cells.select { |cell| [1, 2, 3].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [4, 5, 6].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [7, 8, 9].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [1, 4, 7].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [2, 5, 8].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [3, 6, 9].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [1, 5, 9].include? cell.number }))
+        @rows.push(Row.new(@cells.select { |cell| [3, 5, 7].include? cell.number }))
     end
-
-
 
     def get_previous_moves
         #IMPLEMENT
