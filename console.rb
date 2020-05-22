@@ -10,29 +10,6 @@ class ConsoleApp
         get_user_details
     end
 
-    def play
-        #loop:
-        # draw grid with grid number / player symbols
-            # check for win (after first 3 turns)
-                #run win script
-                #exit loop
-            # check for full grid (is turns == 9 ?)
-                #run draw script
-                #exit loop
-        # get next player to choose an empty cell
-        # end loop
-        
-        keep_playing = true
-        until keep_playing == false
-            loop do
-                draw_grid
-                break if game_over?
-                player_takes_turn
-            end
-            keep_playing = play_again?
-        end            
-    end
-
     def display_welcome_screen
         puts "\nLet's play Noughts and Crosses!"
     end
@@ -45,11 +22,25 @@ class ConsoleApp
         puts "\nNow enter name for Player 2:"
         player2 = gets.chomp
         @game_coord.set_second_player_name(player2)
-        #binding.pry
+    end
 
+    def play
+        keep_playing = true
+        until keep_playing == false
+            loop do
+                draw_grid
+                break if game_over?
+                player_takes_turn
+                @turns += 1
+            end
+            keep_playing = play_again?
+        end            
     end
 
     def draw_grid
+
+        #ACTION: replace numbers with user symbols
+
         line_divider = "---+---+---"
         puts ""
         puts " 1 | 2 | 3"
@@ -60,7 +51,21 @@ class ConsoleApp
     end
 
     def game_over?
-        return true
+        if @turns == 9
+            #run draw script (tell user it's a draw)
+            return true   
+        elsif @turns <= 3
+            #check for anybody won?
+            #run win script (tell user who won)
+            return true
+        else
+            return false
+        end
+    end
+
+    def player_takes_turn
+        # ask player for valid grid number
+        # send data to @game_coord
     end
 
     def play_again?
