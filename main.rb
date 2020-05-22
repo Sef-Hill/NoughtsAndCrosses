@@ -1,4 +1,4 @@
-require_relative "console"
+require_relative 'noughts_and_crosses'
 
-game = ConsoleApp.new
+game = NoughtsAndCrosses.new
 game.play
