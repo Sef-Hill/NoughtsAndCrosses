@@ -9,19 +9,21 @@ class NoughtsAndCrosses
         @game_coord = GameCoord.new
         @turns = 0
         display_welcome_screen
-        get_user_details
     end
 
     def play
         keep_playing = true
         until keep_playing == false
             loop do
-                display_grid
+                previous_moves = @game_coord.get_previous_moves
+                display_grid(previous_moves)
                 break if game_over?
-                get_user_turn
+                available_positions = @game_coord.get_available_positions
+                user_turn = get_user_turn(available_positions)
+                @game_coord.set_user_turn(user_turn)
                 @turns += 1
             end
-            keep_playing = user_plays_again?
+            keep_playing = get_user_plays_again?
         end            
     end
 
@@ -30,8 +32,9 @@ class NoughtsAndCrosses
             display_game_is_draw
             return true   
         elsif @turns >= 3
-            #check for anybody won?
-            #run game_won (tell user who won)
+            winner = @game_coord.get_winner
+            if winner
+                display_winner(player_number)
             return true
         else
             return false

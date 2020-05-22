@@ -65,11 +65,23 @@ class GameCoord
         
     end
 
-    def set_first_player_name(name)
-        @players[0] = Player.new(name, 1)
+    def set_user_turn(user_turn)
+        #user_turn is integer (1 to 9) and already validated
     end
 
-    def set_second_player_name(name)
-        @players[1] = Player.new(name, 2)
+    def get_previous_moves
+        #IMPLEMENT
+        #hash with x => [comma separated positions]
+        #same for y
+        return {}
+    end
+
+    def get_available_positions
+        #IMPLEMENT
+    end
+
+    def get_winner
+        #IMPLEMENT
+        #return player number of winner (1 or 2)
     end
 end
