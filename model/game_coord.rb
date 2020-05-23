@@ -10,7 +10,11 @@ class Row
     def check_for_matching_cells  
         var = @cells.uniq { |cell| cell.occupier }
         #all the unique values in the collection of cells
-        binding.pry
+        if var.size == 1
+            return var.first.occupier
+        else
+            return nil
+        end
     end
 end
 
@@ -20,7 +24,7 @@ class Cell
 
     def initialize(number)
         @number = number
-
+        @occupier = nil
     end
 end
 
@@ -76,13 +80,17 @@ class GameCoord
     end
 
     def get_winner
-        #IMPLEMENT
-        #RETURNS -> String: X or O or nil
-        
-        #Comment:
-        #needs to query rows for 3 Xs or Os
-        check_for_matching_cells
-        #return nil for now
-        return nil
+        row_results = []
+        @rows.each do |row| 
+            row_results.push(row.check_for_matching_cells)
+        end
+        binding.pry
+        if row_results.include? "X"
+            return "X"
+        elsif row_results.include? "O"
+            return "O"
+        else
+            return nil
+        end
     end
 end
