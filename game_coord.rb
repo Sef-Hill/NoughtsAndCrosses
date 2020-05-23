@@ -1,6 +1,4 @@
 class Row
-    attr_accessor :cells
-
     def initialize(cells)
         @cells = cells
     end

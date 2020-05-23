@@ -32,6 +32,7 @@ class NoughtsAndCrosses
                 end
             end
             keep_playing = get_user_plays_again?
+            #if keep playing, need to reset board!
         end            
     end
 
