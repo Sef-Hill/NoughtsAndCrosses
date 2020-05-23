@@ -9,8 +9,8 @@ class NoughtsAndCrosses
     def initialize
         @game_coord = GameCoord.new
         @turn = 1
-        display_welcome_screen
         @player_number = 1
+        display_welcome_screen
     end
 
     def play
