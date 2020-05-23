@@ -44,18 +44,14 @@ class GameCoord
 
     def get_previous_moves
         moves = {"X" => [], "O" => []}
-        xs = []
-        os = []
         @cells.each do |cell|
             if cell.occupier == "X"
-                xs.push(cell.number)
+                moves["X"].push(cell.number)
             elsif 
                 cell.occupier == "O"
-                os.push(cell.number)
+                moves["O"].push(cell.number)
             end
         end
-        moves["X"] = xs
-        moves["O"] = os
         return moves
     end
 
