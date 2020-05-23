@@ -42,6 +42,10 @@ class GameCoord
         @rows.push(Row.new(@cells.select { |cell| [3, 5, 7].include? cell.number }))
     end
 
+    def reset_board
+        @cells.each { |cell| cell.occupier = nil }
+    end
+
     def get_previous_moves
         moves = {"X" => [], "O" => []}
         @cells.each do |cell|

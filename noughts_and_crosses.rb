@@ -32,7 +32,11 @@ class NoughtsAndCrosses
                 end
             end
             keep_playing = get_user_plays_again?
-            #if keep playing, need to reset board!
+            if keep_playing
+                @game_coord.reset_board
+                @player_number = 1
+                @turn = 1
+            end
         end            
     end
 
