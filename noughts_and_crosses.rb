@@ -50,7 +50,7 @@ class NoughtsAndCrosses
             draw_board
             display_game_is_draw
             return true   
-        elsif @turn >= 3
+        elsif @turn >= 5
             if @game_coord.get_winner
                 draw_board
                 display_winner(@player_number)
