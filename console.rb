@@ -55,8 +55,8 @@ module Console
         user_input == "y"
     end
 
-    def display_winner(player_number)
-        puts "\nCongrats Player #{player_number}!"
+    def display_winner(player_number, player_token)
+        puts "\nCongrats Player #{player_number} (#{player_token})!"
     end
 
     def display_game_is_draw

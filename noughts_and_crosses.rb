@@ -53,7 +53,7 @@ class NoughtsAndCrosses
         elsif @turn >= 5
             if @game_coord.get_winner
                 draw_board
-                display_winner(@player_number)
+                display_winner(@player_number, TOKENS[@player_number])
                 return true
             else
                 return false
