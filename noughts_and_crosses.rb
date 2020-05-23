@@ -1,5 +1,5 @@
 require_relative 'console'
-require_relative './model/game_coord'
+require_relative 'game_coord'
 
 class NoughtsAndCrosses
     include Console
