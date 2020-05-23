@@ -1,4 +1,3 @@
-require 'pry'
 require_relative 'console'
 require_relative './model/game_coord'
 
@@ -20,8 +19,8 @@ class NoughtsAndCrosses
             loop do
                 draw_board
                 available_positions = @game_coord.get_available_positions
-                grid_number = get_user_turn(@player_number, TOKENS[@player_number], available_positions)
-                @game_coord.set_user_turn(TOKENS[@player_number], grid_number)
+                chosen_position = get_user_turn(@player_number, TOKENS[@player_number], available_positions)
+                @game_coord.set_user_turn(TOKENS[@player_number], chosen_position)
 
                 break if game_over?
 
@@ -47,8 +46,7 @@ class NoughtsAndCrosses
             display_game_is_draw
             return true   
         elsif @turn >= 3
-            winner = @game_coord.get_winner
-            if winner
+            if @game_coord.get_winner
                 draw_board
                 display_winner(@player_number)
                 return true

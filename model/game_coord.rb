@@ -1,5 +1,3 @@
-require 'pry'
-
 class Row
     attr_accessor :cells
 
@@ -7,10 +5,10 @@ class Row
         @cells = cells
     end
 
-    def check_for_matching_cells  
-        var = @cells.uniq { |cell| cell.occupier }
-        if var.size == 1
-            return var.first.occupier
+    def get_three_in_a_row  
+        unique_values = @cells.uniq { |cell| cell.occupier }
+        if unique_values.size == 1
+            return unique_values.first.occupier
         else
             return nil
         end
@@ -81,7 +79,7 @@ class GameCoord
     def get_winner
         row_results = []
         @rows.each do |row| 
-            row_results.push(row.check_for_matching_cells)
+            row_results.push(row.get_three_in_a_row)
         end
         if row_results.include? "X"
             return "X"
