@@ -46,20 +46,19 @@ class NoughtsAndCrosses
     end
 
     def game_over?
-        if @turn == 9
-            draw_board
-            display_game_is_draw
-            return true   
-        elsif @turn >= 5
+        game_over = false
+
+        if @turn >= 5
             if @game_coord.get_winner
                 draw_board
                 display_winner(@player_number, TOKENS[@player_number])
-                return true
-            else
-                return false
+                game_over = true
+            elsif @turn == 9
+                draw_board
+                display_game_is_draw
+                game_over = true   
             end
-        else
-            return false
         end
+        return game_over
     end
 end
