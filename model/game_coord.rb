@@ -9,7 +9,6 @@ class Row
 
     def check_for_matching_cells  
         var = @cells.uniq { |cell| cell.occupier }
-        #all the unique values in the collection of cells
         if var.size == 1
             return var.first.occupier
         else
@@ -84,7 +83,6 @@ class GameCoord
         @rows.each do |row| 
             row_results.push(row.check_for_matching_cells)
         end
-        binding.pry
         if row_results.include? "X"
             return "X"
         elsif row_results.include? "O"

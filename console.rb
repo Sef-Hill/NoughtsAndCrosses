@@ -4,11 +4,8 @@ module Console
     end
 
     def display_grid(previous_moves)
-
-        #ACTION: replace numbers with users' tokens
-        # previous_moves == Hash: e.g.{X => [1, 2, 9], O => [3, 4]}
-
         grid_symbols = []
+        
         for i in 1..9
             if previous_moves["X"].include? i
                 grid_symbols.push("X")
@@ -29,10 +26,6 @@ module Console
     end
 
     def get_user_turn(player_number, player_token, available_positions)
-        # available_positions == Array[Integer]
-        #RETURNS: Integer
-
-        # ask player for valid move i.e. in available_positions
         valid_input = false
         user_input = 0
         until valid_input
